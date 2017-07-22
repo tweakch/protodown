@@ -1,37 +1,77 @@
 # protodown
-An experimental project using markdown to generate application prototypes
+Use markdown to generate application prototypes.
 
 ## The Idea
-Prototyping is one of the most important steps in development. It lets you test ideas and see what road you want to go down.
+`protodown` is a prototype generator that helps you jump start your application.
 
-Most of the time, successful prototypes will be used as a scaffold for the first iteration of your application.
+`protodown` lets you describe your application in a markdown file and generates your application for you. To tell `protodown` what to generate, it expects you to define Use Case Zero (UC0).
 
-**protodown** lets you describe your prototype in words - following a set of simple rules - and then generate the scaffolding for your application.
+The simplest protodown file looks like this:
 
-## The Basics
-Every application development process should start with the definition of a first use case - UC0. **protodown** expects you to define your main use case first and guides you from there.
+```markdown
+# protodown
+## UC0
+Hello World!
+---
+```
+## Use Case 0
+**protodown** expects you to define use case zero and guides you from there.
 
 ## The Workflow
-Simply write up your main usecase into a Markdown file.: 
+Use the `protodown` command to initialize, configure and generate your prototype.
 
-```shellsession
-# protodown
-## UC0: your main goal
-Generate application scaffolding from a single Markdown file.
-```
-Save your markdown to a file (here: protodown.md) and use the `protodown` command to initialize your protodown repository.
-
-```shellsession
+### Initialize
+```shell
 $ protodown init
-$ protodown -fg protodown.md
+> Done.
+```
+By default `protodown init` creates two files in your current directory:
+- the `protodown.md` file
+```markdown
+# protodown
+## UC0
+Hello world!
+```
+- and the `protodown.config` file
+```markdown
+# protodown.config
+{
+     start:    protodown.md
+}
 ```
 
-`$ protodown init` creates the .pdn folder in the current directory and initializes the `protodown.config` file with some basic configurations.
-
-Set the progamming language for your application with `protodown config`.
-```shellsession
+### Configure
+```shell
 $ protodown config language "csharp"
 > C#
 ```
+`protodown config` lets you configure your protodown repository.
+```markdown
+# protodown.config
+{
+  start:    protodown.md
+  language: csharp
+}
 
-`protodown -fg protodown.md` generates the C# scaffolding from of the markdown in protodown.md.
+---
+```
+
+### Generate
+Open `protodown.md` and write your "Use Case 0" in Markdown: 
+
+```markdown
+# protodown
+## UC0
+Hello world!
+```
+
+To generate the C# scaffolding from the markdown in protodown.md use:
+```shell
+$ protodown -fg protodown.md
+> Generating UC0... done!
+```
+
+## About
+Prototyping is an important part in software development. A prototype lets you test ideas and see what road you want to go down.
+
+You can save a lot of time, when you write good prototypes, because the scaffolding of a successful prototype will often be used as starting point for the first iterations of your application.

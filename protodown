@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # records
 bob = {'name': 'Bob Smith', 'age': 42, 'pay': 30000, 'job': 'dev'}

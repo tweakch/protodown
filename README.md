@@ -127,4 +127,5 @@ This line is only separated by a single newline, so it's a separate line in the 
 ***
 
 Source: [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet "Markdown Cheatsheet")
+
 License: [CC-BY](https://creativecommons.org/licenses/by/3.0/ "CC-BY")

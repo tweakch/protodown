@@ -30,6 +30,3 @@ protodown -fg protodown.md
 `protodown init` creates the .pdn directory and initializes the `protodown.config` file with some basic configurations.
 
 `protodown -fg protodown.md` sets the input file and generates the scaffolding out of this file.
-
-
-Every application development process starts with the definition of a use case - your main goal. **protodown** expects you to define your main use case first. 

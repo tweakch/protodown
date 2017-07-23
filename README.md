@@ -10,7 +10,7 @@ It lets you describe your main use case in a markdown file and generates your ap
 Use the `protodown` command to initialize, configure and generate your prototype.
 
 ### Initialize
-```shell
+```
 $ protodown init
 > Done.
 ```
@@ -22,7 +22,7 @@ By default `protodown init` creates two files in your current directory:
 Hello world!
 ```
 - and the `protodown.config` file
-```markdown
+```json
 # protodown.config
 {
     "start": "protodown.md"
@@ -32,13 +32,13 @@ Hello world!
 ### Configure
 To configure your prototype, use the `config` command.
 
-```shell
+```
 $ protodown config language "csharp"
 > C#
 ```
 
 This command adds a language section to your `protodown.config` file.
-```markdown
+```json
 # protodown.config
 {
     "start": "protodown.md",
@@ -61,7 +61,7 @@ Download a file
 ```
 
 `protodown` will verify that the supplied file contains a UC0 and looks for a solution of your use case online.
-```shell
+```
 $ protodown resolve protodown.md
 > Looking for UC0... ok
 > Looking for solutions... found 1 solution for csharp
@@ -73,7 +73,7 @@ $ protodown config solutions /path/to/your/solutions.md
 ```
 
 This will add a new entry to the solutions section of your `protodown.config` file:
-```markdown
+```json
 # protodown.config
 {
     "start": "protodown.md",
@@ -86,10 +86,9 @@ This will add a new entry to the solutions section of your `protodown.config` fi
     ]
 }
 ```
-
 ### Generate
 Since we have
-```shell
+```
 $ protodown generate
 > Generating prototype... done!
 ```

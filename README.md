@@ -86,7 +86,6 @@ This will add a new entry to the solutions section of your `protodown.config` fi
     ]
 }
 ```
-
 ### Generate
 Since we have
 ```shell

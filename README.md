@@ -39,6 +39,7 @@ Hello world!
      start:    protodown.md
 }
 ```
+`$ protodown init` creates the default `protodown.config` file in the current directory.
 
 ### Configure
 ```shell

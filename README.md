@@ -42,11 +42,13 @@ This command adds a language section to your `protodown.config` file.
 # protodown.config
 {
     "start": "protodown.md",
+    "solutions": [
+        "https://github.com/tweakch/protodown/blob/master/SOLUTIONS.md",
+    ],
     "language": [
         "csharp"
     ]
 }
-
 ```
 
 ### Resolve
@@ -70,7 +72,7 @@ Of course you can tell `protodown` where to look for solutions.
 $ protodown config solutions /path/to/your/solutions.md
 ```
 
-This will add a new entry to your `protodown.config` file:
+This will add a new entry to the solutions section of your `protodown.config` file:
 ```markdown
 # protodown.config
 {
@@ -83,12 +85,10 @@ This will add a new entry to your `protodown.config` file:
         "/path/to/your/solutions.md"
     ]
 }
-
-
 ```
 
-
 ### Generate
+Since we have
 ```shell
 $ protodown generate
 > Generating prototype... done!

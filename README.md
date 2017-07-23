@@ -4,18 +4,7 @@ Use markdown to generate application prototypes.
 ## The Idea
 `protodown` is a prototype generator that helps you jump start your application.
 
-`protodown` lets you describe your application in a markdown file and generates your application for you. To tell `protodown` what to generate, it expects you to define Use Case Zero (UC0).
-
-The simplest protodown file looks like this:
-
-```markdown
-# protodown
-## UC0
-Hello World!
----
-```
-## Use Case 0
-**protodown** expects you to define use case zero and guides you from there.
+It lets you describe your main use case in a markdown file and generates your application for you.
 
 ## The Workflow
 Use the `protodown` command to initialize, configure and generate your prototype.
@@ -36,40 +25,73 @@ Hello world!
 ```markdown
 # protodown.config
 {
-     start:    protodown.md
+    "start": "protodown.md"
 }
 ```
-`$ protodown init` creates the default `protodown.config` file in the current directory.
 
 ### Configure
+To configure your prototype, use the `config` command.
+
 ```shell
 $ protodown config language "csharp"
 > C#
 ```
-`protodown config` lets you configure your protodown repository.
+
+This command adds a language section to your `protodown.config` file.
 ```markdown
 # protodown.config
 {
-  start:    protodown.md
-  language: csharp
+    "start": "protodown.md",
+    "language": [
+        "csharp"
+    ]
 }
 
----
 ```
 
-### Generate
-Open `protodown.md` and write your "Use Case 0" in Markdown: 
+### Resolve
+Open `protodown.md` and change the default "Use Case 0" to your needs.  
 
 ```markdown
 # protodown
 ## UC0
-Hello world!
+Download a file
 ```
 
-To generate the C# scaffolding from the markdown in protodown.md use:
+`protodown` will verify that the supplied file contains a UC0 and looks for a solution of your use case online.
 ```shell
-$ protodown -fg protodown.md
-> Generating UC0... done!
+$ protodown resolve protodown.md
+> Looking for UC0... ok
+> Looking for solutions... found 1 solution for csharp
+```
+
+Of course you can tell `protodown` where to look for solutions.
+```shell
+$ protodown config solutions /path/to/your/solutions.md
+```
+
+This will add a new entry to your `protodown.config` file:
+```markdown
+# protodown.config
+{
+    "start": "protodown.md",
+    "language": [
+        "csharp"
+    ],
+    "solutions": [
+        "https://github.com/tweakch/protodown/blob/master/solutions.md",
+        "/path/to/your/solutions.md"
+    ]
+}
+
+
+```
+
+
+### Generate
+```shell
+$ protodown generate
+> Generating prototype... done!
 ```
 
 ## About

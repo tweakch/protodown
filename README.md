@@ -4,9 +4,9 @@ Use markdown to generate application prototypes.
 ## The Idea
 `protodown` is a rapid prototype generator that helps you jump start your application.
 
-It lets you describe your main use case in a markdown file and generates your application for you.
+It lets you describe your use cases in a markdown file and generates your application for you. The generated code always tries to follow best practices of software development.
 
-`protodown` works, because of the `solutions` the community provides. If protodown can't find a solution for your "specific" use case, it will guide you towards a solution that works.
+`protodown` works, because of the `solutions` the community provides. If protodown can't find a solution for your "specific" use case, it will guide you towards a similar solution that already worked.
 
 ## The Workflow
 Use the `protodown` command to `initialize`, `configure`, `resolve`, `generate` and `run` your prototype.
@@ -39,18 +39,20 @@ Adds a `language` element to your `protodown.config` file;
 ```
 
 ### Resolve
+With `resolve` you can look for solutions of your use case.
+
 ```
 $ protodown resolve
 > Looking for UC0... ok
 > Reading use case... ok.
-> Looking for solutions... found 1 solution in "core" for "python"
+> Looking for "python" solutions... found 2 solution(s) in "core"
 ```
 
-Looks for solutions of your use case for your specified language.
+> Development Notice: This is really where the magic happens... I don't really know how protodown will scale when people work on more complex solutions. But I will gladly take your suggestions and feedback on how to improve protodown.
 
 ### Generate
 ```
-$ protodown generate -f
+$ protodown generate --use-first-solution
 > Generating prototype... done!
 ```
 Generate the folders and files for your prototype.

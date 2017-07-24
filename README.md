@@ -2,98 +2,55 @@
 Use markdown to generate application prototypes.
 
 ## The Idea
-`protodown` is a prototype generator that helps you jump start your application.
+`protodown` is a rapid prototype generator that helps you jump start your application.
 
 It lets you describe your main use case in a markdown file and generates your application for you.
 
+`protodown` works, because of the `solutions` the community provides. If protodown can't find a solution for your "specific" use case, it will guide you towards a solution that works.
+
 ## The Workflow
-Use the `protodown` command to initialize, configure and generate your prototype.
+Use the `protodown` command to `initialize`, `configure`, `resolve`, `generate` and `run` your prototype.
 
 ### Initialize
 ```
 $ protodown init
-> Done.
-```
-By default `protodown init` creates two files in your current directory:
-- the `protodown.md` file
-```markdown
-# protodown
-## UC0
-Hello world!
-```
-- and the `protodown.config` file
-```json
-# protodown.config
-{
-    "start": "protodown.md"
-}
+> Initialized empty repository.
 ```
 
 ### Configure
-To configure your prototype, use the `config` command.
-
 ```
-$ protodown config language "csharp"
-> C#
-```
-
-This command adds a language section to your `protodown.config` file.
-```json
-# protodown.config
-{
-    "start": "protodown.md",
-    "solutions": [
-        "https://github.com/tweakch/protodown/blob/master/SOLUTIONS.md",
-    ],
-    "language": [
-        "csharp"
-    ]
-}
+$ protodown config language "python"
 ```
 
 ### Resolve
-Open `protodown.md` and change the default "Use Case 0" to your needs.  
-
-```markdown
-# protodown
-## UC0
-Download a file
 ```
-
-`protodown` will verify that the supplied file contains a UC0 and looks for a solution of your use case online.
-```
-$ protodown resolve protodown.md
+$ protodown resolve
 > Looking for UC0... ok
-> Looking for solutions... found 1 solution for csharp
+> Reading use case... ok.
+> Looking for solutions... found 1 solution in "core" for "python"
 ```
 
-Of course you can tell `protodown` where to look for solutions.
-```shell
-$ protodown config solutions /path/to/your/solutions.md
-```
-
-This will add a new entry to the solutions section of your `protodown.config` file:
-```json
-# protodown.config
-{
-    "start": "protodown.md",
-    "language": [
-        "csharp"
-    ],
-    "solutions": [
-        "https://github.com/tweakch/protodown/blob/master/solutions.md",
-        "/path/to/your/solutions.md"
-    ]
-}
-```
 ### Generate
-Since we have
 ```
 $ protodown generate
 > Generating prototype... done!
 ```
 
+### Run
+```
+$ protodown run
+> Running python application "Hello World"...
+
+> Hello World!
+```
+
+That's it!
+
+For more information on each step of the workflow, checkout the wiki pages.
+
 ## About
 Prototyping is an important part in software development. A prototype lets you test ideas and see what road you want to go down.
 
-You can save a lot of time, when you write good prototypes, because the scaffolding of a successful prototype will often be used as starting point for the first iterations of your application.
+You can save a lot of time when you write good prototypes, because the scaffolding of a successful prototype will often be used as starting point for the first iterations of your application.
+
+`protodown` tries to help you write quality prototypes with as little effort as possible.

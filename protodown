@@ -2,3 +2,21 @@
 import argparse, textwrap
 from string import Template
 
+parser = argparse.ArgumentParser(
+    prog=None,
+    usage='%(prog)s [-h] command ',
+    description="Parser description",
+    epilog="Epilog of the parser class",
+    parents=[],
+    formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+    prefix_chars='-',
+    fromfile_prefix_chars=None,
+    argument_default=None,
+    conflict_handler='error',
+    add_help=True,
+    allow_abbrev=True)
+args = parser.parse_args()
+if(vars(args)):                     # vars(args) != {}
+    print(args.func(args))   #dispatch from thread
+else:                               # vars(args) == {}
+    parser.print_help()

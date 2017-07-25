@@ -8,4 +8,4 @@ Hello world!
 ---
 
 # By the way...
-protodown looks for the `# protodown` header and parses that section until it finds the horizontal line tag `---`.
+protodown looks for the `# protodown` header and parses that section down to the horizontal line tag `---`.

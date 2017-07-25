@@ -1,0 +1,10 @@
+# protodown.config json
+{
+  "start": "protodown.md",
+  "solutions": [
+    {
+      "core": "https://www.github.com/tweakch/protodown/blob/master/SOLUTIONS.md"
+    }
+  ],
+  "language": "csharp"
+}

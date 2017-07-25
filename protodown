@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+import argparse, textwrap
+from string import Template
 
 # records
 bob = {'name': 'Bob Smith', 'age': 42, 'pay': 30000, 'job': 'dev'}

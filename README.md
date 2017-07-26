@@ -1,3 +1,5 @@
+> protodown is a side project. It will not move very quickly... but I try to *push* myself. 
+
 # protodown
 Use markdown to generate application prototypes.
 
@@ -68,3 +70,7 @@ $ protodown run
 That's it!
 
 For more information on each step of the workflow, checkout the wiki pages.
+
+<p align="center">
+	<a href="https://travis-ci.org/tweakch/protodown/"><img src="https://travis-ci.org/tweakch/protodown.svg?branch=master" /> </a>
+</p>

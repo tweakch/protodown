@@ -18,7 +18,6 @@ def parseCommands(parser, commandsConfig):
         if 'arguments' in config:
             arguments=config['arguments']
 
-
     return subparsers
 
 class Arguments():

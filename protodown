@@ -1,92 +1,10 @@
 #!/usr/bin/env python3
-import argparse, textwrap
-from string import Template
+from bootstrap.app import Protodown
+from app.console.kernel import Kernel
 
-def init(arguments):
-    return "Initialized empty repository"
+app=Protodown()
 
-def config(arguments):
-    if(arguments.option=='help'):
-        return 'display config help'
-    else:
-        s = Template("setting $option to $value")
-        return s.substitute(option=arguments.option,value=arguments.value)
-
-def lookup(arguments):
-    return "lookup tests"
-
-def resolve(arguments):
-    return "Looking for UC0..."
-
-def generate(arguments):
-    return "Generating prototype..."
-
-def run(arguments):
-    return "Starting application..."
-
-parser = argparse.ArgumentParser(
-    prog=None,
-    usage='%(prog)s [-h] command ',
-    description="Parser description",
-    epilog="Epilog of the parser class",
-    parents=[],
-    formatter_class=argparse.ArgumentDefaultsHelpFormatter,
-    prefix_chars='-',
-    fromfile_prefix_chars=None,
-    argument_default=None,
-    conflict_handler='error',
-    add_help=True,
-    allow_abbrev=True)
-
-#group = parser.add_argument_group('Available protodown commands')
-#group.add_argument('init', help="Create an empty Protodown repository or reinitialize an existing one")
-#group.add_argument('config', help="Configure your protodown repository")
-#group.add_argument('resolve', help="Find solutions for your prototype")
-#group.add_argument('generate', help="Let the magic happen")
-#group.add_argument('run', help="Start your prototype")
-
-subparsers=parser.add_subparsers(title='protodown commands',
-    description='Here is a list of all available commands. (Shortcodes in parentheses)',
-    help='description',
-    metavar='')
-
-#init
-alias_init=['i']
-help_init='Use "init" to initialize an empty repository or reinitialize an existing one. "init" will purge the solution cache. Use "-r" or "--resolve" to download a new solutions cache.'
-parser_init=subparsers.add_parser('init', help=help_init, aliases=alias_init)
-parser_init.set_defaults(func=init)
-
-#config
-alias_config=['c']
-help_config='Use "config" Configure an empty repositoryConfigure an empty repositoryConfigure an empty repository'
-default_option_config="help"
-choices_option_config=['start', 'language', 'help']
-parser_config=subparsers.add_parser('config', help=help_config, aliases=alias_config)
-group_scope=parser_config.add_mutually_exclusive_group()
-parser_config.add_argument('option', default=default_option_config, choices=choices_option_config)
-parser_config.add_argument('value')
-group_scope.add_argument('--global',action='store_true')
-group_scope.add_argument('--project',action='store_true')
-group_scope.add_argument('--directory',action='store_true')
-parser_config.set_defaults(func=config)
-
-parser_resolve=subparsers.add_parser('lookup', aliases=['l'])
-parser_resolve.set_defaults(func=lookup)
-
-parser_resolve=subparsers.add_parser('resolve', aliases=['r'])
-parser_resolve.set_defaults(func=resolve)
-
-parser_generate=subparsers.add_parser('generate', aliases=['g'])
-parser_generate.set_defaults(func=generate)
-
-parser_run=subparsers.add_parser('run')
-parser_run.set_defaults(func=run)
-
-#parser.add_argument('--version', action='version', version='%(prog)s 0.1')
-#parser.add_argument('arguments', nargs=argparse.REMAINDER)
-
-args = parser.parse_args()
-if(vars(args)):                     # vars(args) != {}
-    print(args.func(args))   #dispatch from thread
+if(vars(app.args)):                     # vars(args) != {}
+    print(app.args.func(app.args))   #dispatch from thread
 else:                               # vars(args) == {}
-    parser.print_help()
+    app.print_help()

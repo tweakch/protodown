@@ -36,7 +36,7 @@ Adds a `language` element to your `protodown.config` file;
 ```json
 # protodown.config
 {
-  "language": "csharp"
+  "language": "python"
 }
 ```
 
